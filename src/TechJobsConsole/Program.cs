@@ -41,6 +41,7 @@ namespace TechJobsConsole
                     else
                     {
                         List<string> results = JobData.FindAll(columnChoice);
+                       
 
                         Console.WriteLine("\n*** All " + columnChoices[columnChoice] + " Values ***");
                         foreach (string item in results)
@@ -91,7 +92,7 @@ namespace TechJobsConsole
             }
 
             do
-            {
+            { //this prints the results to the console as long as the choice is valid
                 Console.WriteLine("\n" + choiceHeader + " by:");
 
                 for (int j = 0; j < choiceKeys.Length; j++)
@@ -101,7 +102,7 @@ namespace TechJobsConsole
 
                 string input = Console.ReadLine();
                 choiceIdx = int.Parse(input);
-
+                //this makes sure the choice is valid
                 if (choiceIdx < 0 || choiceIdx >= choiceKeys.Length)
                 {
                     Console.WriteLine("Invalid choices. Try again.");
@@ -118,7 +119,25 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("PrintJobs is not implemented yet");
+            if (someJobs.Count == 0)
+            {
+                Console.WriteLine("\n No results. Try another search term.");
+
+            }
+            for (int i = 0; i < someJobs.Count; i++)
+            {
+                
+                    string stars = "*****";
+                    Console.WriteLine(stars);
+                    Console.WriteLine("name: " + someJobs[i]["name"]);
+                    Console.WriteLine("employer: " + someJobs[i]["employer"]);
+                    Console.WriteLine("location: " + someJobs[i]["location"]);
+                    Console.WriteLine("position type: " + someJobs[i]["position type"]);
+                    Console.WriteLine("core competency: " + someJobs[i]["core competency"]);
+                    Console.WriteLine(stars + "\n");
+                
+            };
+
         }
     }
 }
