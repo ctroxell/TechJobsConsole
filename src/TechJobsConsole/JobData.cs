@@ -66,8 +66,8 @@ namespace TechJobsConsole
             {
                 foreach (KeyValuePair<string, string> kvp in job)
                 {
-                    bool isMatchingJob = kvp.Value.ToLower() == searchTerm.ToLower();
-                    if (isMatchingJob)
+                    var jobTerm = kvp.Value.ToLower();                   
+                    if (jobTerm.Contains(searchTerm))
                     {
                         if (!results.Contains(job))
                         {
