@@ -127,17 +127,13 @@ namespace TechJobsConsole
             }
             for (int i = 0; i < someJobs.Count; i++)
             {
-                
-                    string stars = "*****";
-                    Console.WriteLine(stars);
-                    Console.WriteLine("name: " + someJobs[i]["name"]);
-                    Console.WriteLine("employer: " + someJobs[i]["employer"]);
-                    Console.WriteLine("location: " + someJobs[i]["location"]);
-                    Console.WriteLine("position type: " + someJobs[i]["position type"]);
-                    Console.WriteLine("core competency: " + someJobs[i]["core competency"]);
-                    Console.WriteLine(stars + "\n");
-                
-            };
+                Console.WriteLine("*****");
+                foreach (KeyValuePair<string, string> kvp in someJobs[i])
+                {
+                    Console.WriteLine(kvp.Key + ": " + kvp.Value);
+                }
+                Console.WriteLine("*****");
+            }
 
         }
     }
